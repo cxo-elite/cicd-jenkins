@@ -36,6 +36,14 @@ docker push manifoldailearning/cicd:latest
 
 docker run -d -it --name modelv1 -p 8005:8005 manifoldailearning/cicd:latest bash
 
+============================================================
+docker build -t loan_pred:v1 .
+docker build -t cxo4elite/cicd:latest . 
+docker push cxo4elite/cicd:latest
+
+docker run -d -it --name modelv1 -p 8005:8005 cxo4elite/cicd:latest bash
+===========================================================
+
 docker exec modelv1 python prediction_model/training_pipeline.py
 
 docker exec modelv1 pytest -v --junitxml TestResults.xml --cache-clear
