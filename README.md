@@ -36,10 +36,10 @@ http://3.7.201.232:8005/docs
 
 Git changes
 -----------
-cd D:\Git\ai_projects\mlops_bootcamp\ml-ci-cd-jenkins
+cd D:\Git\ai_projects\mlops_bootcamp\ml-ci-cd-jenkins\cicd-jenkins
 git status -- Identify the changes in code
 git add .
-git commit -m "readme file update"
+git commit -m "readme file updated for demo"
 
 ================================================================
 
