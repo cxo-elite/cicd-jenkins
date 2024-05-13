@@ -1,4 +1,47 @@
 # Setup Virtual Environment
+====================================================================================
+Demo codes
+----
+
+Connect to ec2
+-------------
+ssh -i "aws-ec2-key.pem" ubuntu@3.7.201.232
+
+remove existing docker image
+docker stop modelv1
+docker rm model v1
+
+Deploy
+------------
+Execute first job in jenkins pipeline
+
+Fast api
+---------------
+http://3.7.201.232:8005/docs
+
+{
+  "Gender": "Male",
+  "Married": "No",
+  "Dependents": "2",
+  "Education": "Graduate",
+  "Self_Employed": "No",
+  "ApplicantIncome": 5849,
+  "CoapplicantIncome": 0,
+  "LoanAmount": 1000,
+  "Loan_Amount_Term": 1,
+  "Credit_History": "1.0",
+  "Property_Area": "Rural"
+}
+
+
+Git changes
+-----------
+cd D:\Git\ai_projects\mlops_bootcamp\ml-ci-cd-jenkins
+git status -- Identify the changes in code
+git add .
+git commit -m "readme file update"
+
+================================================================
 
 ```python
 conda create -n jenkins-env python=3.10 -y
@@ -37,11 +80,19 @@ docker push manifoldailearning/cicd:latest
 docker run -d -it --name modelv1 -p 8005:8005 manifoldailearning/cicd:latest bash
 
 ============================================================
+docker run -d -it --name modelv1 -p 8005:8005 cxo4elite/cicd:latest bash
+
 docker build -t loan_pred:v1 .
 docker build -t cxo4elite/cicd:latest . 
 docker push cxo4elite/cicd:latest
 
 docker run -d -it --name modelv1 -p 8005:8005 cxo4elite/cicd:latest bash
+
+docker exec modelv1 python prediction_model/training_pipeline.py
+
+docker exec modelrv1 pytest -v --junitxml TestResults.xml --cache-clear
+
+docker cp modelv1:/code/src/TestResults.xml .
 ===========================================================
 
 docker exec modelv1 python prediction_model/training_pipeline.py
@@ -128,5 +179,18 @@ docker images --format "{{.ID}} {{.CreatedAt}}" | sort -rk 2 | awk 'NR==1{print 
 ==================================================
 Test Modification
 
+#AWS connect to instance
+ssh -i "aws-mlops.pem" ubuntu@ec2-43-205-241-33.ap-south-1.compute.amazonaws.com
 
+
+Docker commands
+----------------
+
+-- If training buil need to run mumltiple times stop and remove the docker container and then build
+docker stop modelv1
+docker rm model v1
+
+====================================================================================
+Demo
+----
 
