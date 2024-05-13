@@ -1,6 +1,6 @@
 
 Demo codes
-----
+----------
 
 Connect to ec2
 -------------
@@ -39,6 +39,8 @@ cd D:\Git\ai_projects\mlops_bootcamp\ml-ci-cd-jenkins\cicd-jenkins
 git status -- Identify the changes in code
 git add .
 git commit -m "readme file updated for demo"
+git branch -M main
+git push -u origin main
 
 ================================================================
 
