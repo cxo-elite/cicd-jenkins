@@ -2,13 +2,22 @@
 Demo codes
 ----------
 
-Connect to ec2
+Local Docker
+-----------
+Start modelv1 container
+command: Start loan prediction app 
+docker exec -d -w /code modelv1 python main.py
+
+http://127.0.0.1:8005/docs
+Post the requirement details in Json format
+
+PROD - Connect to ec2
 -------------
 ssh -i "aws-ec2-key.pem" ubuntu@3.7.201.232
 
 remove existing docker image
 docker stop modelv1
-docker rm model v1
+docker rm modelv1
 
 Deploy
 ------------
@@ -38,7 +47,7 @@ Git changes
 cd D:\Git\ai_projects\mlops_bootcamp\ml-ci-cd-jenkins\cicd-jenkins
 git status -- Identify the changes in code
 git add .
-git commit -m "readme file updated for demo"
+git commit -m "pem added"
 git branch -M main
 git push -u origin main
 
@@ -84,7 +93,6 @@ docker push manifoldailearning/cicd:latest
 docker run -d -it --name modelv1 -p 8005:8005 manifoldailearning/cicd:latest bash
 
 ============================================================
-docker run -d -it --name modelv1 -p 8005:8005 cxo4elite/cicd:latest bash
 
 docker build -t loan_pred:v1 .
 docker build -t cxo4elite/cicd:latest . 
@@ -94,7 +102,7 @@ docker run -d -it --name modelv1 -p 8005:8005 cxo4elite/cicd:latest bash
 
 docker exec modelv1 python prediction_model/training_pipeline.py
 
-docker exec modelrv1 pytest -v --junitxml TestResults.xml --cache-clear
+docker exec modelv1 pytest -v --junitxml TestResults.xml --cache-clear
 
 docker cp modelv1:/code/src/TestResults.xml .
 ===========================================================
