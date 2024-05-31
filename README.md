@@ -1,4 +1,42 @@
 
+
+---------
+Final Demo
+---------
+
+Jenkins Admin password
+--------------
+admin
+3628b649ffc542e68ae308d5c6ac2994
+
+Jenkins Pipeline - http://3.7.201.232:8080/
+Prod - AWS Web App - http://3.7.201.232:8005/docs
+Local - Web app http://127.0.0.1:8005/docs
+Git - https://github.com/cxo-elite/cicd-jenkins
+AWS EC2 - https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#Instances:instanceState=running
+Mail 
+AWS EC2 Machines 1. App Server" -  ssh -i "aws-ec2-key.pem" ubuntu@3.7.201.232
+                  2. Monitoring Server" - ssh -i "aws-ec2-key.pem" ubuntu@13.200.109.82
+CM - Prometheus - http://13.200.109.82:9090/targets?search=
+                  Server metrics - 13.200.109.82:9100/metrics
+                  Fast api app metrics - http://13.200.109.82:8005/docs 
+     Grafhana - http://13.200.109.82:3000/dashboard/new?orgId=1&from=1717079455746&to=1717083055746&viewPanel=1
+                http://13.200.109.82:3000/dashboard/new?orgId=1&refresh=auto
+                
+
+
+Local to Git
+----------
+cd D:\Git\ai_projects\mlops_bootcamp\ml-ci-cd-jenkins\cicd-jenkins
+git status -- Identify the changes in code
+git add .
+git commit -m "Test file added"
+git branch -M main
+git push -u origin main
+
+
+
+=======================================================
 Demo codes
 ----------
 
@@ -47,7 +85,7 @@ Git changes
 cd D:\Git\ai_projects\mlops_bootcamp\ml-ci-cd-jenkins\cicd-jenkins
 git status -- Identify the changes in code
 git add .
-git commit -m "pem added"
+git commit -m "Test file added"
 git branch -M main
 git push -u origin main
 
